@@ -2,21 +2,50 @@ const expect = require('expect.js');
 
 const isReferrerSpam = require('../');
 
+const NOT_SPAMING = 'google.com';
+const IS_SPAMING = 'free-traffic.xyz';
+
 describe('Module', () => {
 
-	it('Should return false for a non spam domain', () => {
+	describe('Callback', () => {
 
-		return isReferrerSpam('google.com').then(result => {
-			expect(result).to.be.equal(false);
-		}).catch(err => { expect(err).to.be.equal(undefined); });
+		it('Should return false for a non spam domain', () => {
+
+			isReferrerSpam(NOT_SPAMING, (err, result) => {
+				expect(err).to.be.equal(null);
+				expect(result).to.be.equal(false);
+			});
+
+		});
+
+		it('Should return true for a spam domain', () => {
+
+			isReferrerSpam(IS_SPAMING, (err, result) => {
+				expect(err).to.be.equal(null);
+				expect(result).to.be.equal(true);
+			});
+
+		});
 
 	});
 
-	it('Should return true for a spam domain', () => {
+	describe('Promise', () => {
 
-		return isReferrerSpam('free-traffic.xyz').then(result => {
-			expect(result).to.be.equal(true);
-		}).catch(err => { expect(err).to.be.equal(undefined); });
+		it('Should return false for a non spam domain', () => {
+
+			return isReferrerSpam(NOT_SPAMING).then(result => {
+				expect(result).to.be.equal(false);
+			}).catch(err => { expect(err).to.be.equal(undefined); });
+
+		});
+
+		it('Should return true for a spam domain', () => {
+
+			return isReferrerSpam(IS_SPAMING).then(result => {
+				expect(result).to.be.equal(true);
+			}).catch(err => { expect(err).to.be.equal(undefined); });
+
+		});
 
 	});
 
