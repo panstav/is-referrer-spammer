@@ -1,39 +1,13 @@
-const fs = require('fs');
-const byline = require('byline');
-
-const PATH_TO_SPAMMERS_LIST = 'node_modules/@piwik/referrer-spam-blacklist/spammers.txt';
+const searchBlacklist = require('./lib/search-blacklist');
 
 module.exports = isReffererSpammer;
 
 function isReffererSpammer(referrer, callback){
 
-	if (!callback) return new Promise(searchBlacklist);
+	if (!callback) return searchBlacklist(referrer);
 
-	Promise.resolve(searchBlacklist)
+	searchBlacklist(referrer)
 		.then(result => callback(null, result))
 		.catch(callback);
-
-	function searchBlacklist(resolve, reject){
-
-		const stream = byline(fs.createReadStream(PATH_TO_SPAMMERS_LIST, { encoding: 'utf8' }));
-
-		var isSpammer = false;
-
-		stream.on('error', err => reject(err));
-
-		stream.on('data', line =>{
-
-			if (line === referrer) {
-				isSpammer = true;
-				resolve(isSpammer);
-			}
-
-		});
-
-		stream.on('end', () =>{
-			if (!isSpammer) resolve(false);
-		});
-
-	}
 
 }
