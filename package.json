@@ -1,0 +1,18 @@
+{
+  "name": "@panstav/is-referrer-spammer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@piwik/referrer-spam-blacklist": "https://github.com/panstav/referrer-spam-blacklist/tarball/master",
+    "byline": "4.2.1",
+    "expect.js": "0.3.1",
+    "mocha": "2.5.3"
+  }
+}
