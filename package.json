@@ -11,8 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "@piwik/referrer-spam-blacklist": "https://github.com/panstav/referrer-spam-blacklist/tarball/master",
-    "byline": "4.2.1",
+    "byline": "4.2.1"
+  },
+  "devDependencies": {
     "expect.js": "0.3.1",
+    "express": "4.14.0",
     "mocha": "2.5.3"
   }
 }
