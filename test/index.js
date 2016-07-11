@@ -18,6 +18,15 @@ describe('Module', () => {
 
 		});
 
+		it('Should return false for an undefined argument', () => {
+
+			isReferrerSpam(undefined, (err, result) => {
+				expect(err).to.be.equal(null);
+				expect(result).to.be.equal(false);
+			});
+
+		});
+
 		it('Should return true for a spam domain', () => {
 
 			isReferrerSpam(IS_SPAMING, (err, result) => {
@@ -34,6 +43,14 @@ describe('Module', () => {
 		it('Should return false for a non spam domain', () => {
 
 			return isReferrerSpam(NOT_SPAMING).then(result => {
+				expect(result).to.be.equal(false);
+			}).catch(err => { expect(err).to.be.equal(undefined); });
+
+		});
+
+		it('Should return false for an undefined argument', () => {
+
+			return isReferrerSpam(undefined).then(result => {
 				expect(result).to.be.equal(false);
 			}).catch(err => { expect(err).to.be.equal(undefined); });
 
