@@ -1,8 +1,6 @@
 const searchBlacklist = require('./lib/search-blacklist');
-const middleware = require('./lib/middleware');
 
 module.exports = isReffererSpammer;
-module.exports.middleware = middleware;
 
 function isReffererSpammer(referrer, callback){
 
