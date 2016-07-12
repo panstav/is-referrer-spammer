@@ -1,14 +1,28 @@
 {
   "name": "@panstav/is-referrer-spammer",
   "version": "0.0.0",
-  "description": "",
+  "description": "Checks if a given domain is on referer spam blacklist",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha"
   },
-  "keywords": [],
-  "author": "",
+  "engines": {
+    "node": "4.4.7",
+    "npm": "2.15.8"
+  },
+  "author": {
+    "name": "Stav Geffen",
+    "email": "stavgeffen@gmail.com",
+    "url": "http://www.stav.io"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panstav/is-referer-spammer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panstav/is-referer-spammer/issues"
+  },
   "dependencies": {
     "@piwik/referrer-spam-blacklist": "https://github.com/panstav/referrer-spam-blacklist/tarball/master",
     "byline": "4.2.1",
@@ -19,5 +33,10 @@
     "express": "4.14.0",
     "mocha": "2.5.3",
     "supertest": "1.2.0"
-  }
+  },
+  "keywords": [
+    "spam",
+    "referer",
+    "referral"
+  ]
 }
