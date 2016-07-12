@@ -43,7 +43,7 @@ describe('Module', () => {
 
 			return isReferrerSpam(common.NOT_SPAMING).then(result => {
 				expect(result).to.be.equal(false);
-			}).catch(err => { expect(err).to.be.equal(undefined); });
+			});
 
 		});
 
@@ -51,7 +51,7 @@ describe('Module', () => {
 
 			return isReferrerSpam(undefined).then(result => {
 				expect(result).to.be.equal(false);
-			}).catch(err => { expect(err).to.be.equal(undefined); });
+			});
 
 		});
 
@@ -59,7 +59,7 @@ describe('Module', () => {
 
 			return isReferrerSpam(common.IS_SPAMING).then(result => {
 				expect(result).to.be.equal(true);
-			}).catch(err => { expect(err).to.be.equal(undefined); });
+			});
 
 		});
 
