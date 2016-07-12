@@ -26,7 +26,8 @@
   "dependencies": {
     "@piwik/referrer-spam-blacklist": "https://github.com/panstav/referrer-spam-blacklist/tarball/master",
     "byline": "4.2.1",
-    "domain-name-parser": "2.3.0"
+    "domain-name-parser": "2.3.0",
+    "glob": "7.0.5"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
