@@ -65,4 +65,34 @@ describe('Module', () => {
 
 	});
 
+	describe('Subdomain and Hosts', () => {
+
+		it('Should recognize spam domains with a subdomain', () => {
+
+			return isReferrerSpam(`sub.${common.IS_SPAMING}`).then(result => {
+				expect(result).to.be.equal(true);
+			}).then(() => {
+
+				return isReferrerSpam(`sub.${common.NOT_SPAMING}`);
+			}).then(result => {
+				expect(result).to.be.equal(false);
+			});
+
+		});
+
+		it('Should recognize spam domains with a subdomain AND a host', () => {
+
+			return isReferrerSpam(`host.sub.${common.IS_SPAMING}`).then(result => {
+				expect(result).to.be.equal(true);
+			}).then(() => {
+
+				return isReferrerSpam(`host.sub.${common.NOT_SPAMING}`);
+			}).then(result => {
+				expect(result).to.be.equal(false);
+			});
+
+		});
+
+	});
+
 });
